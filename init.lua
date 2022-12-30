@@ -1,4 +1,4 @@
-require("terola.plugins-setup")
-require("terola.core.options")
-require("terola.core.keymaps")
-require("terola.core.colorscheme")
+require("plugins-setup")
+require("core.options")
+require("core.keymaps")
+require("core.colorscheme")
