@@ -1,6 +1,6 @@
 # This is my personal nvim configuration
 ## It may change anytime
-<br><br>
+<br>
 ## Linux Installation
 **Make a backup if you want to keep your current nvim config**
 ```
