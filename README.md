@@ -1,8 +1,7 @@
 # This is my personal nvim configuration
 ## It may change anytime
 <br><br>
-
-## Installation
+## Linux Installation
 **Make a backup if you want to keep your current nvim config**
 ```
 mv ~/.config/nvim ~/.config/nvim_backup
