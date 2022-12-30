@@ -27,6 +27,10 @@ return packer.startup(function(use)
 
   use 'navarasu/onedark.nvim' -- theme
 
+  use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
+
+  use("szw/vim-maximizer")
+
   if packer_bootstrap then
     require("packer").sync()
   end
