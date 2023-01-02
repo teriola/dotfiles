@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 
 -- general keybinds
-keymap.set("i", "jk", "<ESC>") -- exit insert mode with jk   
+keymap.set("i", "jj", "<ESC>") -- exit insert mode with jk   
 
 keymap.set("n", "<leader>nh", ":nohl<CR>") -- clear search highlights
 
