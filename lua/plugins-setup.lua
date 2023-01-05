@@ -24,12 +24,24 @@ end
 
 return packer.startup(function(use)
   use("wbthomason/packer.nvim") -- packer
+  use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
   use 'navarasu/onedark.nvim' -- theme
 
   use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
-  use("szw/vim-maximizer")
+  use("szw/vim-maximizer") -- maximizes and restores current window
+
+  use("tpope/vim-surround")
+  use("vim-scripts/ReplaceWithRegister")
+
+  use("numToStr/Comment.nvim") -- commenting with gc
+
+  use("nvim-tree/nvim-tree.lua") -- file explorer
+
+  use("kyazdani42/nvim-web-devicons") -- icons
+
+  use("nvim-lualine/lualine.nvim") -- statusline
 
   if packer_bootstrap then
     require("packer").sync()
