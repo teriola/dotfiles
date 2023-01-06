@@ -25,6 +25,7 @@ end
 return packer.startup(function(use)
   use("wbthomason/packer.nvim") -- packer
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
+  use("BurntSushi/ripgrep")
 
   use 'navarasu/onedark.nvim' -- theme
 
@@ -42,6 +43,12 @@ return packer.startup(function(use)
   use("kyazdani42/nvim-web-devicons") -- icons
 
   use("nvim-lualine/lualine.nvim") -- statusline
+
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    -- or                            , branch = '0.1.x',
+  } -- fuzzy finder
+
 
   if packer_bootstrap then
     require("packer").sync()

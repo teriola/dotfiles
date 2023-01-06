@@ -3,4 +3,16 @@ if not status then
   return
 end
 
-lualine.setup()
+local lualine_onedark = require("lualine.themes.onedark")
+
+lualine_onedark.command = {
+  a = {
+    gui = "bold",
+    -- colors
+  }
+}
+lualine.setup({
+  options = {
+    theme = lualine_onedark
+  }
+})
