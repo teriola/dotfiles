@@ -3,9 +3,9 @@ if not status then
   return
 end
 
-local lualine_onedark = require("lualine.themes.onedark")
+local lualine_catppuccin = require("lualine.themes.catppuccin")
 
-lualine_onedark.command = {
+lualine_catppuccin.command = {
   a = {
     gui = "bold",
     -- colors
@@ -13,6 +13,6 @@ lualine_onedark.command = {
 }
 lualine.setup({
   options = {
-    theme = lualine_onedark
+    theme = lualine_catppuccin,
   }
 })

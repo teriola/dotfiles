@@ -1,53 +1,83 @@
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
+    fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+    vim.cmd([[packadd packer.nvim]])
     return true
   end
   return false
 end
-local packer_bootstrap = ensure_packer()
+local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
-vim.cmd([[
+-- autocommand that reloads neovim and installs/updates/removes plugins
+-- when file is saved
+vim.cmd([[ 
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
   augroup end
 ]])
 
+-- import packer safely
 local status, packer = pcall(require, "packer")
-if not status then 
+if not status then
   return
 end
-
+ 
 return packer.startup(function(use)
-  use("wbthomason/packer.nvim") -- packer
-  use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
-  use("BurntSushi/ripgrep")
 
-  use 'navarasu/onedark.nvim' -- theme
+  use("wbthomason/packer.nvim")
+
+  use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
+
+  use { "catppuccin/nvim", as = "catppuccin" } -- preferred colorscheme
 
   use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
   use("szw/vim-maximizer") -- maximizes and restores current window
 
-  use("tpope/vim-surround")
-  use("vim-scripts/ReplaceWithRegister")
+  -- essential plugins
+  use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
+  use("inkarkat/vim-ReplaceWithRegister") -- replace with register contents using motion (gr + motion)
 
-  use("numToStr/Comment.nvim") -- commenting with gc
+  -- commenting with gc
+  use("numToStr/Comment.nvim")
 
-  use("nvim-tree/nvim-tree.lua") -- file explorer
+  -- file explorer
+  use("nvim-tree/nvim-tree.lua")
 
-  use("kyazdani42/nvim-web-devicons") -- icons
+  -- vs-code like icons
+  use("nvim-tree/nvim-web-devicons")
 
-  use("nvim-lualine/lualine.nvim") -- statusline
+  -- statusline
+  use("nvim-lualine/lualine.nvim")
 
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    -- or                            , branch = '0.1.x',
-  } -- fuzzy finder
+  -- fuzzy finding w/ telescope
+  -- use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
+  use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
+
+  -- autocompletion
+  use("hrsh7th/nvim-cmp") -- completion plugin
+  use("hrsh7th/cmp-buffer") -- source for text in buffer
+  use("hrsh7th/cmp-path") -- source for file system paths
+
+  -- snippets
+  use("L3MON4D3/LuaSnip") -- snippet engine
+  use("saadparwaiz1/cmp_luasnip") -- for autocompletion
+  use("rafamadriz/friendly-snippets") -- useful snippets
+
+  -- managing & installing lsp servers
+  use("williamboman/mason.nvim")
+  use("williamboman/mason-lspconfig.nvim")
+
+  -- configuring lsp servers
+  use("neovim/nvim-lspconfig")
+  use("hrsh7th/cmp-nvim-lsp")
+  use({ "glepnir/lspsaga.nvim", branch = "main" })
+  use("jose-elias-alvarez/typescript.nvim")
+  use("onsails/lspkind.nvim")
+
 
 
   if packer_bootstrap then
