@@ -1,35 +1,60 @@
-local opt = vim.opt
+local options = {
+  -- line numbers
+  number = true,
+  relativenumber = true,
+  -- tabs & indentation
+  tabstop = 2,
+  shiftwidth = 2,
+  expandtab = true,
+  autoindent = true,
+  smartindent = true,
+  -- line wrapping 
+  wrap = false,
+  -- search settings
+  ignorecase = true,
+  smartcase = true,
+  -- appearance
+  termguicolors = true,
+  background = "dark",
+  signcolumn = "yes",
+  cmdheight = 2,
+  cursorline = true,
+  -- backspace
+  backspace = "indent,eol,start",
+  -- split windows
+  splitright = true,
+  splitbelow = true,
+  -- clipboard
+  clipboard = "unnamedplus",
+  -- word spacing
+  iskeyword = '-',
+  -- enable mouse for all modes
+  mouse = "a",
+  -- popup window height
+  pumheight = 10,
+  -- no swap file is created
+  swapfile = false,
+  -- can undo file after reboot
+  undofile = true,
+  -- faster completion
+  updatetime = 300,
+  -- leaves x lines space when scrolling
+  scrolloff = 8,
+  sidescrolloff = 8,
 
--- line numbers
-opt.number = true
-opt.relativenumber = true
+  -- others
+  writebackup = false,
+  completeopt = { "menuone", "noselect" },
 
--- tabs & indentation
-opt.tabstop = 2
-opt.shiftwidth = 2
-opt.expandtab = true
-opt.autoindent = true
+  -- defaults
+  backup = false,
+  conceallevel = 0,
+  fileencoding = "utf-8",
+  hlsearch = true,
+  timeoutlen = 1000,
+  numberwidth = 4,
+}
 
--- line wrapping 
-opt.wrap = false
-
--- search settings
-opt.ignorecase = true
-opt.smartcase = true
-
--- appearance
-opt.termguicolors = true
-opt.background = "dark"
-opt.signcolumn = "yes"
-
--- backspace
-opt.backspace = "indent,eol,start"
-
--- clipboard
-opt.clipboard:append("unnamedplus")
-
--- split windows
-opt.splitright = true
-opt.splitbelow = true
-
-opt.iskeyword:append("-")
+for k, v in pairs(options) do
+vim.opt[k] = v
+end
