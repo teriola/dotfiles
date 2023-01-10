@@ -26,8 +26,6 @@ local options = {
   splitbelow = true,
   -- clipboard
   clipboard = "unnamedplus",
-  -- word spacing
-  iskeyword = '-',
   -- enable mouse for all modes
   mouse = "a",
   -- popup window height
@@ -41,11 +39,9 @@ local options = {
   -- leaves x lines space when scrolling
   scrolloff = 8,
   sidescrolloff = 8,
-
   -- others
   writebackup = false,
-  completeopt = { "menuone", "noselect" },
-
+  completeopt = "menu,menuone,noselect",
   -- defaults
   backup = false,
   conceallevel = 0,
@@ -56,5 +52,5 @@ local options = {
 }
 
 for k, v in pairs(options) do
-vim.opt[k] = v
+  vim.opt[k] = v
 end
