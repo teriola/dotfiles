@@ -1,3 +1,5 @@
+live_config_reload: true
+
 # Colors ()
 colors:
   # Default Colors
@@ -25,21 +27,21 @@ colors:
       white: "#bac2de"
       # magenta: ""
 
-window.opacity: 1.0
+window.opacity: 0.90
 
 font: 
   normal:
-    family: "DejaVuSansMono"
+    family: "BorgSansMono"
     style: Regular
-  bold:
-    family: "DejaVuSansMono"
-    style: Bold
-  italic:
-    family: "DejaVuSansMono"
-    style: Regular
-  bold_italic:
-    family: "DejaVuSansMono"
-    style: Bold
+  # bold:
+  # family: "DejaVuSansMono"
+    # style: Bold
+  # italic:
+    # family: "DejaVuSansMono"
+    # style: Regular
+  # bold_italic:
+    # family: "DejaVuSansMono"
+    # style: Bold
   
     size: 22.0
 
@@ -66,7 +68,6 @@ selection:
   semantic_escape_chars: ',|`" ()[]{}<>'
   save_to_clipboard: true
 
-live_config_reload: true
 
 key_bindings: 
   - { key: N, mods: Control, action: SpawnNewInstance }
