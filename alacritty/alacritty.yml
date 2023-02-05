@@ -1,0 +1,73 @@
+# Colors ()
+colors:
+  # Default Colors
+  primary:
+    background: "#1e1e2e"
+    foreground: "#cdd6f4"
+
+    normal:
+      black: "#11111b"
+      red: "#f38ba8"
+      green: "#a6e3a1"
+      yellow: "#fab387"
+      blue: "#89b4fa"
+      cyan: "#89dceb"
+      white: "#a7adc8"
+      # magenta: ""
+
+    bright:
+      black: "#1e1e2e"
+      red: "#eba0ac"
+      green: "#94e2d5"
+      yellow: "#f9e2af"
+      blue: "#74c7ec"
+      cyan: "#89dceb"
+      white: "#bac2de"
+      # magenta: ""
+
+window.opacity: 1.0
+
+font: 
+  normal:
+    family: "DejaVuSansMono"
+    style: Regular
+  bold:
+    family: "DejaVuSansMono"
+    style: Bold
+  italic:
+    family: "DejaVuSansMono"
+    style: Regular
+  bold_italic:
+    family: "DejaVuSansMono"
+    style: Bold
+  
+    size: 22.0
+
+    offset: 
+      x: 0
+      y: 0
+    glyph_offset:
+      x: 0
+      y: 0
+
+window: 
+  padding:
+    x: 2
+    y: 2
+
+scrolling: 
+  history: 10000
+
+  multiplier: 10
+
+draw_bold_text_with_bright_colors: true
+
+selection: 
+  semantic_escape_chars: ',|`" ()[]{}<>'
+  save_to_clipboard: true
+
+live_config_reload: true
+
+key_bindings: 
+  - { key: N, mods: Control, action: SpawnNewInstance }
+
