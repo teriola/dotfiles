@@ -1,40 +1,45 @@
 -- Declare options 
 local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
+-- local term_opts = { silent = true }
 
 -- shorten function name with a variable
 local keymap = vim.api.nvim_set_keymap
 
--- remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
+-- Map <leader> to space
 vim.g.mapleader = " "
 
+-- Remap space as leader key
+keymap("", "<Space>", "<Nop>", opts)
+
 -- Normal --
+-- Git stuff
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+
 ---- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
----- Resize with arrows
-keymap("n", "<C-Up>", ":resize +2<CR>", opts)
-keymap("n", "<C-Down", ":resize -2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
+---- Resize windows
+keymap("n", "<leader>>", ":vertical resize +2<CR>", opts)
+keymap("n", "<leader><", ":vertical resize -2<CR>", opts)
+keymap("n", "<leader>+", ":resize +2<CR>", opts)
+keymap("n", "<leader>-", ":resize -2<CR>", opts)
 
 -- Navigate vertically
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 
 ---- Navigate buffers
-keymap("n", "<leader>l", ":bnext<CR>", opts)
-keymap("n", "<leader>h", ":bprevious<CR>", opts)
+-- keymap("n", "<leader>l", ":bnext<CR>", opts)
+-- keymap("n", "<leader>h", ":bprevious<CR>", opts)
 keymap("n", "<leader>c", ":w|bd<CR>", opts) -- Save and close buffer
 keymap("n", "<leader>x", ":bd!<CR>", opts) -- Close buffer without save
 keymap("n", "<leader>w", ":w<CR>", opts) -- Save buffer
 
 ---- Clear search highlights
-keymap("n", "<leader>h", ":nohl<CR>", opts)
+keymap("n", "<leader>nh", ":nohl<CR>", opts)
 
 -- Better search exprerience
 keymap("n", "n", "nzzzv", opts)
@@ -49,8 +54,8 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
 
 ---- Stay in indent mode / doesn't work for some reason
--- keymap("n", "<", "<gv", opts)
 -- keymap("n", ">", ">gv", opts)
+-- keymap("n", "<", "<gv", opts)
 
 ---- Windows
 keymap("n", "<leader>sh", "<C-w>s", opts) -- split window horizontally
@@ -58,9 +63,9 @@ keymap("n", "<leader>sv", "<C-w>v", opts) -- split window vertically
 keymap("n", "<leader>se", "<C-w>=", opts) -- make split windows equal width
 keymap("n", "<leader>sx", ":close<CR>", opts) -- close current split window
 
----- Tabs
+---- tabs
 keymap("n", "<leader>to", ":tabnew<CR>", opts) -- open new tab
-keymap("n", "<leader>tx", ":tabclose<CR>", opts) -- close current tab
+keymap("n", "<leader>tc", ":tabclose<CR>", opts) -- close current tab
 keymap("n", "<leader>tn", ":tabn<CR>", opts) -- go to next tab
 keymap("n", "<leader>tp", ":tabp<CR>", opts) -- go to previous tab
 
@@ -69,12 +74,12 @@ keymap("n", "<leader>tp", ":tabp<CR>", opts) -- go to previous tab
 keymap("n", "<leader>m", ":MaximizerToggle<CR>", opts)
 
 ---- Harpoon
-keymap("n", "<leader>hm", ":lua require(\"harpoon.mark\").add_file()<CR>", opts)
-keymap("n", "<leader>hu", ":lua require(\"harpoon.ui\").toggle_quick_menu()<CR>", opts)
-keymap("n", "<leader>h1", ":lua require(\"harpoon.ui\").nav_file(1)<CR>", opts)
-keymap("n", "<leader>h2", ":lua require(\"harpoon.ui\").nav_file(2)<CR>", opts)
-keymap("n", "<leader>h3", ":lua require(\"harpoon.ui\").nav_file(3)<CR>", opts)
-keymap("n", "<leader>h4", ":lua require(\"harpoon.ui\").nav_file(4)<CR>", opts)
+keymap("n", "<leader>a", ":lua require(\"harpoon.mark\").add_file()<CR>", opts)
+keymap("n", "<leader>e", ":lua require(\"harpoon.ui\").toggle_quick_menu()<CR>", opts)
+keymap("n", "<leader>h", ":lua require(\"harpoon.ui\").nav_file(1)<CR>", opts)
+keymap("n", "<leader>j", ":lua require(\"harpoon.ui\").nav_file(2)<CR>", opts)
+keymap("n", "<leader>k", ":lua require(\"harpoon.ui\").nav_file(3)<CR>", opts)
+keymap("n", "<leader>l", ":lua require(\"harpoon.ui\").nav_file(4)<CR>", opts)
 
 ---- Telescope 
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts) -- find files within current working directory, respects .gitignore
@@ -84,7 +89,7 @@ keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts) -- list open buffe
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts) -- list available help tags
 
 -- Nvim-tree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>ps", ":NvimTreeToggle<CR>", opts)
 
 -- Insert --
 ---- Exit insert mode with jj

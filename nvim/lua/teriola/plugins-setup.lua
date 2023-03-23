@@ -34,7 +34,7 @@ packer.init {
     end,
   }
 }
- 
+
 -- Import plugins
 return packer.startup(function(use)
   -- Necessary plugins
@@ -42,16 +42,14 @@ return packer.startup(function(use)
   use("nvim-lua/plenary.nvim") -- Lua functions that many plugins use
   use("ggandor/leap.nvim") -- Fast navigation in viewable part of the screen
   use("tpope/vim-repeat") -- The above plugins depends on this one
-  use { "catppuccin/nvim", as = "catppuccin" } -- Colorscheme
+  -- Colorschemes
+  use { "catppuccin/nvim", as = "catppuccin" }
+  use { "folke/tokyonight.nvim" }
+  use({ 'rose-pine/neovim', as = 'rose-pine' })
   -- Window related 
   use("szw/vim-maximizer") -- Maximizes and restores current window
   -- Treesitter
-  use({ 
-    "nvim-treesitter/nvim-treesitter",
-    run = function()
-      require("nvim-treesitter.install").update({ with_sync = true })
-    end,
-  })
+  use( "nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"})
   -- Auto closing tags, brackets ...
   use("windwp/nvim-autopairs")
   use("windwp/nvim-ts-autotag")
@@ -60,32 +58,44 @@ return packer.startup(function(use)
   -- Commenting 
   use("numToStr/Comment.nvim") -- Easier commenting out code
   -- Telescope fuzzy finding
-  use("nvim-telescope/telescope.nvim") -- Telescope plugin itself
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    -- or                            , branch = '0.1.x',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
   -- Icons
   use("kyazdani42/nvim-web-devicons")
   -- Statusline
   use("nvim-lualine/lualine.nvim")
   -- Text manipulation
   use("tpope/vim-surround") -- Surrounds selected text with selected char or characters
-  -- Autocompletion - cmp
-  use("hrsh7th/nvim-cmp") -- Completion plugin
-  use("hrsh7th/cmp-buffer") -- Buffer completions 
-  use("hrsh7th/cmp-path") -- Path completions
-  use("David-Kunz/cmp-npm") -- JSON suggestions
-  use("hrsh7th/cmp-nvim-lsp") -- LSP completions 
-  use({ "glepnir/lspsaga.nvim", branch = "main", requires = { {"nvim-tree/nvim-web-devicons"} } })
-  use("jose-elias-alvarez/typescript.nvim")
-  use("onsails/lspkind.nvim")
-  -- Snippets
-  use("L3MON4D3/LuaSnip") -- Snippet engine
-  use("saadparwaiz1/cmp_luasnip") -- Snippet completions
-  use("rafamadriz/friendly-snippets") -- A bunch of snippets to use
   -- Harpoon - faster buffer navigation
   use("ThePrimeagen/harpoon")
   -- LSP
-  use("williamboman/mason.nvim")
-  use("neovim/nvim-lspconfig")
-  use("williamboman/mason-lspconfig.nvim")
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v1.x',
+    requires = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},             -- Required
+      {'williamboman/mason.nvim'},           -- Optional
+      {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},         -- Required
+      {'hrsh7th/cmp-nvim-lsp'},     -- Required
+      {'hrsh7th/cmp-buffer'},       -- Optional
+      {'hrsh7th/cmp-path'},         -- Optional
+      {'saadparwaiz1/cmp_luasnip'}, -- Optional
+      {'hrsh7th/cmp-nvim-lua'},     -- Optional
+
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},             -- Required
+      {'rafamadriz/friendly-snippets'}, -- Optional
+    }
+  }
+  -- Git stuff
+  use("tpope/vim-fugitive")
 
   if packer_bootstrap then
     require("packer").sync()
