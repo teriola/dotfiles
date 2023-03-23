@@ -8,6 +8,11 @@ if not snip_status_ok then
   return
 end
 
+-- local _lspkind, lspkind = pcall(require, "lspkind")
+-- if not _lspkind then
+--   return
+-- end
+
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
@@ -109,7 +114,7 @@ cmp.setup {
     end,
   },
   sources = {
-    -- { name = "nvim_lsp" },
+    { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },

@@ -73,11 +73,19 @@ return packer.startup(function(use)
   use("hrsh7th/cmp-path") -- Path completions
   use("David-Kunz/cmp-npm") -- JSON suggestions
   use("hrsh7th/cmp-nvim-lsp") -- LSP completions 
+  use({ "glepnir/lspsaga.nvim", branch = "main", requires = { {"nvim-tree/nvim-web-devicons"} } })
+  use("jose-elias-alvarez/typescript.nvim")
+  use("onsails/lspkind.nvim")
   -- Snippets
   use("L3MON4D3/LuaSnip") -- Snippet engine
   use("saadparwaiz1/cmp_luasnip") -- Snippet completions
   use("rafamadriz/friendly-snippets") -- A bunch of snippets to use
-  
+  -- Harpoon - faster buffer navigation
+  use("ThePrimeagen/harpoon")
+  -- LSP
+  use("williamboman/mason.nvim")
+  use("neovim/nvim-lspconfig")
+  use("williamboman/mason-lspconfig.nvim")
 
   if packer_bootstrap then
     require("packer").sync()

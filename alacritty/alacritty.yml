@@ -1,74 +1,44 @@
-live_config_reload: true
+live_config_relolive_config_reload: true
 
-# Colors ()
-colors:
-  # Default Colors
-  primary:
-    background: "#1e1e2e"
-    foreground: "#cdd6f4"
+env:
+  TERM: xterm-256color
 
-    normal:
-      black: "#11111b"
-      red: "#f38ba8"
-      green: "#a6e3a1"
-      yellow: "#fab387"
-      blue: "#89b4fa"
-      cyan: "#89dceb"
-      white: "#a7adc8"
-      # magenta: ""
+window:
+  opacity: 0.90
+  decorations: full
+  dynamic_title: true
 
-    bright:
-      black: "#1e1e2e"
-      red: "#eba0ac"
-      green: "#94e2d5"
-      yellow: "#f9e2af"
-      blue: "#74c7ec"
-      cyan: "#89dceb"
-      white: "#bac2de"
-      # magenta: ""
-
-window.opacity: 0.90
-
-font: 
+font:
   normal:
-    family: "BorgSansMono"
+    family: Hack
     style: Regular
-  # bold:
-  # family: "DejaVuSansMono"
-    # style: Bold
-  # italic:
-    # family: "DejaVuSansMono"
-    # style: Regular
-  # bold_italic:
-    # family: "DejaVuSansMono"
-    # style: Bold
-  
-    size: 22.0
+  bold:
+    family: Hack
+    style: Bold
+  italic:
+    family: Hack
+    style: Italic
+  size: 8.0
 
-    offset: 
-      x: 0
-      y: 0
-    glyph_offset:
-      x: 0
-      y: 0
+shell:
+  program: /bin/bash
 
-window: 
-  padding:
-    x: 2
-    y: 2
-
-scrolling: 
-  history: 10000
-
-  multiplier: 10
-
-draw_bold_text_with_bright_colors: true
-
-selection: 
-  semantic_escape_chars: ',|`" ()[]{}<>'
-  save_to_clipboard: true
+key_bindings:
+  - { key: C, mods: Control|Alt, action: Copy }
+  - { key: V, mods: Control|Alt, action: Paste }
+  - { key: Up, mods: Control|Alt, action: IncreaseFontSize }
+  - { key: Down, mods: Control|Alt, action: DecreaseFontSize }
+  - { key: Key0, mods: Control|Alt, action: ResetFontSize }
+  - { key: PageUp, mods: Shift, action: ScrollPageUp }
+  - { key: PageDown, mods: Shift, action: ScrollPageDown }
+  - { key: Home, mods: Shift, action: ScrollToTop }
+  - { key: End, mods: Shift, action: ScrollToBottom }
+  - { key: F, mods: Control|Alt, action: SearchForward }
+  - { key: B, mods: Control|Alt, action: SearchBackward }
+  - { key: Space, mods: Control, action: ToggleViMode }
+  - { key: Escape, action: ToggleViMode, mode: Vi }
+  - { key: Return, mods: Control|Alt, action: SpawnNewInstance }
 
 
-key_bindings: 
-  - { key: N, mods: Control, action: SpawnNewInstance }
-
+colors:import:
+  - ~/.config/alacritty/theme.yml
