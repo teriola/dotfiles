@@ -43,7 +43,7 @@ ln -sf "$DOTFILES_DIR/nvim/lua/teriola/plugins/lsp/lsp.lua" "$LSP_DIR"
 # tmux #
 ########
 # tmux dirs
-# TMUX_DIR="$CONFIG_HOME/tmux"
+TMUX_DIR="$CONFIG_HOME/tmux"
 
-# mkdir -p "$TMUX_DIR"
-# ln -sf "$TMUX_DIR/tmux.conf" "$CONFIG_HOME/tmux/tmux.conf"
+mkdir -p "$TMUX_DIR"
+ln -sf "$DOTFILES_DIR/tmux/tmux.conf" "$TMUX_DIR/tmux.conf"
