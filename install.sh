@@ -1,7 +1,16 @@
 #!/bin/bash
 
-DOTFILES_DIR="$HOME/dotfiles"
 CONFIG_HOME="$HOME/.config"
+DOTFILES_DIR="$HOME/dotfiles"
+
+# Subdirectories of nvim
+DOTFILES_NVIM="$DOTFILES_DIR/nvim"
+DOTFILES_LUA="$DOTFILES_NVIM/lua"
+DOTFILES_CORE="$DOTFILES_LUA/teriola/core"
+DOTFILES_PLUGINS="$DOTFILES_LUA/teriola/plugins"
+
+# Subdirectories of tmux
+DOTFILES_TMUX="$DOTFILES_DIR/tmux"
 
 ########
 # nvim #
@@ -21,23 +30,23 @@ mkdir -p "$PLUGINS_DIR"
 mkdir -p "$LSP_DIR"
 
 # Add all files
-ln -sf "$DOTFILES_DIR/nvim/init.lua" "$NVIM_DIR"
-ln -sf "$DOTFILES_DIR/nvim/lua/teriola/plugins-setup.lua" "$TERIOLA_DIR"
+ln -sf "$DOTFILES_NVIM/init.lua" "$NVIM_DIR"
+ln -sf "$DOTFILES_LUA/teriola/plugins-setup.lua" "$TERIOLA_DIR"
 
-ln -sf "$DOTFILES_DIR/nvim/lua/teriola/core/options.lua" "$CORE_DIR"
-ln -sf "$DOTFILES_DIR/nvim/lua/teriola/core/keymaps.lua" "$CORE_DIR"
-ln -sf "$DOTFILES_DIR/nvim/lua/teriola/core/colorscheme.lua" "$CORE_DIR" 
+ln -sf "$DOTFILES_CORE/options.lua" "$CORE_DIR"
+ln -sf "$DOTFILES_CORE/keymaps.lua" "$CORE_DIR"
+ln -sf "$DOTFILES_CORE/colorscheme.lua" "$CORE_DIR" 
 
-ln -sf "$DOTFILES_DIR/nvim/lua/teriola/plugins/autopairs.lua" "$PLUGINS_DIR" 
-ln -sf "$DOTFILES_DIR/nvim/lua/teriola/plugins/nvim-leap.lua" "$PLUGINS_DIR"
-ln -sf "$DOTFILES_DIR/nvim/lua/teriola/plugins/telescope.lua" "$PLUGINS_DIR"
-ln -sf "$DOTFILES_DIR/nvim/lua/teriola/plugins/comment.lua" "$PLUGINS_DIR"
-ln -sf "$DOTFILES_DIR/nvim/lua/teriola/plugins/lualine.lua" "$PLUGINS_DIR"
-ln -sf "$DOTFILES_DIR/nvim/lua/teriola/plugins/nvim-tree.lua" "$PLUGINS_DIR"
-ln -sf "$DOTFILES_DIR/nvim/lua/teriola/plugins/treesitter.lua" "$PLUGINS_DIR"
-ln -sf "$DOTFILES_DIR/nvim/lua/teriola/plugins/nvim-cmp.lua" "$PLUGINS_DIR"
+ln -sf "$DOTFILES_PLUGINS/autopairs.lua" "$PLUGINS_DIR" 
+ln -sf "$DOTFILES_PLUGINS/nvim-leap.lua" "$PLUGINS_DIR"
+ln -sf "$DOTFILES_PLUGINS/telescope.lua" "$PLUGINS_DIR"
+ln -sf "$DOTFILES_PLUGINS/comment.lua" "$PLUGINS_DIR"
+ln -sf "$DOTFILES_PLUGINS/lualine.lua" "$PLUGINS_DIR"
+ln -sf "$DOTFILES_PLUGINS/nvim-tree.lua" "$PLUGINS_DIR"
+ln -sf "$DOTFILES_PLUGINS/treesitter.lua" "$PLUGINS_DIR"
+ln -sf "$DOTFILES_PLUGINS/nvim-cmp.lua" "$PLUGINS_DIR"
 
-ln -sf "$DOTFILES_DIR/nvim/lua/teriola/plugins/lsp/lsp.lua" "$LSP_DIR"
+ln -sf "$DOTFILES_PLUGINS/lsp/lsp.lua" "$LSP_DIR"
 
 ########
 # tmux #
@@ -46,4 +55,4 @@ ln -sf "$DOTFILES_DIR/nvim/lua/teriola/plugins/lsp/lsp.lua" "$LSP_DIR"
 TMUX_DIR="$CONFIG_HOME/tmux"
 
 mkdir -p "$TMUX_DIR"
-ln -sf "$DOTFILES_DIR/tmux/tmux.conf" "$TMUX_DIR/tmux.conf"
+ln -sf "$DOTFILES_TMUX/tmux.conf" "$TMUX_DIR/tmux.conf"

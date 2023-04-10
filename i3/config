@@ -1,6 +1,9 @@
 # i3 config file
 set $mod Mod4
 
+# Fix display resolution
+exec_always xrandr --output Virtual-1 --mode 1920x1080
+
 # Font for window titles. Will also be used by the bar unless a different font
 font Hack
 exec --no-startup-id dex --autostart --environment i3
@@ -29,6 +32,9 @@ bindsym $mod+c kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
+
+set $i3lockwall sh ~/.config/i3/scripts/lock.sh
+bindsym $mod+CTRL+Shift+l exec --no-startup-id $i3lockwall
 
 # change focus
 bindsym $mod+h focus left
@@ -103,9 +109,9 @@ bindsym $mod+Shift+4 move container to workspace number $file_manager
 # Go back to the last workspace with the same keystroke
 workspace_auto_back_and_forth yes
 
-set $i3lockwall sh ~/.config/i3/scripts/lock.sh
+# set $i3lockwall sh ~/.config/i3/scripts/lock.sh
 
-bindsym $mod+CTRL+Shift+l exec --no-startup-id $i3lockwall
+# bindsym $mod+CTRL+Shift+l exec --no-startup-id $i3lockwall
 
 assign [class="Alacritty" instance="Alacritty"] $terms
 assign [class="firefox" instance="Navigator"] $web
@@ -147,9 +153,39 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# Start i3bar to display a workspace bar (plus the system 
+# information i3stats finds out, if available)
 bar {
-        status_command i3status
+  status_command i3status --config ~/.config/i3/i3status.conf
+  # Disable all tray icons
+  # tray_output none
+
+  tray_output primary
+  # colors {
+  #     background $black2
+  #     statusline $white2
+  #     separator $white2
+
+  # border background text
+      # focused_workspace  $background $background $red1
+      # active_workspace   $black2 $black1 $white2
+      # inactive_workspace $black1 $black2 $foreground
+      # urgent_workspace   $red1 $red1 $white2
+      # binding_mode       $background $red2 $white2
+    # }
 }
+
+########################
+# bumblebee status line
+# bar {
+#   status_command /usr/bin/bumblebee-status \
+#     -m cpu memory time \
+#     pasink pasource \
+#     -p time.format="%H:%M" \
+#     -t solarized 
+# }
+########################
+
+# Set wallpaper
+# exec_always feh --bg-fill /home/terola/Pictures/wallpapers/arch-logo-wallpaper.jpg
 set $i4lockwall sh ~/.config/i3/scripts/lock.sh
