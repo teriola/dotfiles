@@ -25,6 +25,11 @@ lualine_nightfly.commmand = {
 
 lualine.setup({
   options = {
-    theme = lualine_nightfly
+    theme = "palenight",
+    icons_enabled = true
   }, 
-})
+  sections = {
+    lualine_c = { "filename" },
+    lualine_x = { "encoding", "fileformat", "filetype" },
+  },
+});

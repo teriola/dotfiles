@@ -1,24 +1,27 @@
 live_config_relolive_config_reload: true
 
 env:
-  TERM: xterm-256color
+  TERM: alacritty
 
 window:
-  opacity: 0.90
+  opacity: 1.0
   decorations: full
   dynamic_title: true
 
 font:
   normal:
-    family: DejaVuSansMono
+    family: "Cascadia Code" 
     style: Regular
   bold:
-    family: DejaVuSansMono 
+    family: "Cascadia Code"
     style: Bold
   italic:
-    family: DejaVuSansMono 
+    family: "Cascadia Code" 
     style: Italic
-  size: 8.0
+  bold_italic:
+    family: "Cascadia Code"
+    style: Bold Italic
+  size: 12.0
 
 shell:
   program: /bin/bash
