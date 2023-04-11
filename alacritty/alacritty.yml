@@ -10,13 +10,13 @@ window:
 
 font:
   normal:
-    family: Hack
+    family: DejaVuSansMono
     style: Regular
   bold:
-    family: Hack
+    family: DejaVuSansMono 
     style: Bold
   italic:
-    family: Hack
+    family: DejaVuSansMono 
     style: Italic
   size: 8.0
 

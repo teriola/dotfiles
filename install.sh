@@ -12,6 +12,12 @@ DOTFILES_PLUGINS="$DOTFILES_LUA/teriola/plugins"
 # Subdirectories of tmux
 DOTFILES_TMUX="$DOTFILES_DIR/tmux"
 
+# Subdirectories of i3
+DOTFILES_I3="$DOTFILES_DIR/i3"
+
+# Subdirectories of alacritty
+DOTFILES_ALACRITTY="$DOTFILES_DIR/alacritty"
+
 ########
 # nvim #
 ########
@@ -56,3 +62,28 @@ TMUX_DIR="$CONFIG_HOME/tmux"
 
 mkdir -p "$TMUX_DIR"
 ln -sf "$DOTFILES_TMUX/tmux.conf" "$TMUX_DIR/tmux.conf"
+
+
+########
+#  i3  #
+########
+
+I3_DIR="$CONFIG_HOME/i3"
+
+mkdir -p "$I3_DIR"
+mkdir -p "$I3_DIR/scripts"
+ln -sf "$DOTFILES_I3/config" "$I3_DIR/config"
+ln -sf "$DOTFILES_I3/i3status.conf" "$I3_DIR/i3status.conf" 
+
+ln -sf "$DOTFILES_I3/scripts/lock.sh" "$I3_DIR/scripts/lock.sh"
+
+
+#############
+# alacritty #
+#############
+
+ALACRITTY_DIR="$CONFIG_HOME/alacritty"
+
+mkdir -p "$ALACRITTY_DIR"
+ln -sf "$DOTFILES_ALACRITTY/alacritty.yml" "$ALACRITTY_DIR/alacritty.yml"
+ln -sf "$DOTFILES_ALACRITTY/theme.yml" "$ALACRITTY_DIR/theme.yml"
