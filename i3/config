@@ -1,6 +1,9 @@
 # i3 config file
 set $mod Mod4
 
+# Set wallpaper
+exec --no-startup-id feh --no-fehbg --bg-fill \ ~/Pictures/wallpapers/engine-loli-wallpaper.png
+
 # Fix display resolution
 exec_always xrandr --output Virtual-1 --mode 1920x1080
 
@@ -177,5 +180,3 @@ bar {
 }
 
 
-# Set wallpaper
-# exec_always feh --bg-fill /home/terola/Pictures/wallpapers/arch-logo-wallpaper.jpg
