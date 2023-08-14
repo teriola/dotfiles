@@ -10,19 +10,19 @@
 Clone the repository and install the plugins:
 
 ```sh
-git clone git@github.com:teriola/dotfiles ~/.config/teriola/dotfiles
-NVIM_APPNAME=teriola/dotfiles/nvim nvim --headless +"PackerSync" +qa
+git clone git@github.com:teriola/dotfiles ~/.config/user/dotfiles
+NVIM_APPNAME=user/dotfiles/nvim nvim --headless +"PackerSync" +qa
 ```
 
 Open Neovim with this config:
 
 ```sh
-NVIM_APPNAME=teriola/dotfiles/nvim nvim
+NVIM_APPNAME=user/dotfiles/nvim nvim
 ```
 
 ## Plugins
 
-### colorscheme
+### colorschemes
 
 + [folke/tokyonight.nvim](https://dotfyle.com/plugins/folke/tokyonight.nvim)
 + [catppuccin/nvim](https://dotfyle.com/plugins/catppuccin/nvim)
