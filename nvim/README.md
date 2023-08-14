@@ -1,5 +1,3 @@
-README.md# dotfiles/nvim
-
 <a href="https://dotfyle.com/teriola/dotfiles-nvim"><img src="https://dotfyle.com/teriola/dotfiles-nvim/badges/plugins?style=flat" /></a>
 <a href="https://dotfyle.com/teriola/dotfiles-nvim"><img src="https://dotfyle.com/teriola/dotfiles-nvim/badges/leaderkey?style=flat" /></a>
 <a href="https://dotfyle.com/teriola/dotfiles-nvim"><img src="https://dotfyle.com/teriola/dotfiles-nvim/badges/plugin-manager?style=flat" /></a>
