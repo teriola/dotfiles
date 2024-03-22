@@ -1,6 +1,5 @@
 -- Declare options 
 local opts = { noremap = true, silent = true }
--- local term_opts = { silent = true }
 
 -- shorten function name with a variable
 local keymap = vim.api.nvim_set_keymap
@@ -11,9 +10,9 @@ vim.g.mapleader = " "
 -- Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 
--- Normal --
--- Git stuff
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+-------------------------------- Normal Mode
+---- Git stuff
+-- vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
 ---- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -22,18 +21,18 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 ---- Resize windows
-keymap("n", "<leader>>", ":vertical resize +2<CR>", opts)
-keymap("n", "<leader><", ":vertical resize -2<CR>", opts)
-keymap("n", "<leader>+", ":resize +2<CR>", opts)
-keymap("n", "<leader>-", ":resize -2<CR>", opts)
+-- keymap("n", "<leader>>", ":vertical resize +2<CR>", opts)
+-- keymap("n", "<leader><", ":vertical resize -2<CR>", opts)
+-- keymap("n", "<leader>+", ":resize +2<CR>", opts)
+-- keymap("n", "<leader>-", ":resize -2<CR>", opts)
 
 -- Navigate vertically
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 
 ---- Navigate buffers
--- keymap("n", "<leader>l", ":bnext<CR>", opts)
--- keymap("n", "<leader>h", ":bprevious<CR>", opts)
+-- keymap("n", "<leader>l", ":bnext<CR>", opts) -- Navigate to next buffer
+-- keymap("n", "<leader>h", ":bprevious<CR>", opts) -- Navigate to previous buffer
 keymap("n", "<leader>c", ":w|bd<CR>", opts) -- Save and close buffer
 keymap("n", "<leader>x", ":bd!<CR>", opts) -- Close buffer without save
 keymap("n", "<leader>w", ":w<CR>", opts) -- Save buffer
@@ -45,7 +44,7 @@ keymap("n", "<leader>nh", ":nohl<CR>", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 
----- Deleting doesn't overwrite the default register 
+---- Deleting with "x" doesn't overwrite the default register 
 keymap("n", "x", '"_x', opts)
 --keymap("n", "dd", '"_dd', opts)
 
@@ -58,47 +57,25 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
 -- keymap("n", "<", "<gv", opts)
 
 ---- Windows
-keymap("n", "<leader>sh", "<C-w>s", opts) -- split window horizontally
-keymap("n", "<leader>sv", "<C-w>v", opts) -- split window vertically
-keymap("n", "<leader>se", "<C-w>=", opts) -- make split windows equal width
-keymap("n", "<leader>sx", ":close<CR>", opts) -- close current split window
+-- keymap("n", "<leader>sh", "<C-w>s", opts) -- split window horizontally
+-- keymap("n", "<leader>sv", "<C-w>v", opts) -- split window vertically
+-- keymap("n", "<leader>se", "<C-w>=", opts) -- make split windows equal width
+-- keymap("n", "<leader>sx", ":close<CR>", opts) -- close current split window
 
 ---- tabs
-keymap("n", "<leader>to", ":tabnew<CR>", opts) -- open new tab
-keymap("n", "<leader>tc", ":tabclose<CR>", opts) -- close current tab
-keymap("n", "<leader>tn", ":tabn<CR>", opts) -- go to next tab
-keymap("n", "<leader>tp", ":tabp<CR>", opts) -- go to previous tab
+-- keymap("n", "<leader>to", ":tabnew<CR>", opts) -- open new tab
+-- keymap("n", "<leader>tc", ":tabclose<CR>", opts) -- close current tab
+-- keymap("n", "<leader>tn", ":tabn<CR>", opts) -- go to next tab
+-- keymap("n", "<leader>tp", ":tabp<CR>", opts) -- go to previous tab
 
--- Plugin ---- 
----- Vim-maximizer
-keymap("n", "<leader>m", ":MaximizerToggle<CR>", opts)
-
----- Harpoon
-keymap("n", "<leader>a", ":lua require(\"harpoon.mark\").add_file()<CR>", opts)
-keymap("n", "<leader>e", ":lua require(\"harpoon.ui\").toggle_quick_menu()<CR>", opts)
-keymap("n", "<leader>h", ":lua require(\"harpoon.ui\").nav_file(1)<CR>", opts)
-keymap("n", "<leader>j", ":lua require(\"harpoon.ui\").nav_file(2)<CR>", opts)
-keymap("n", "<leader>k", ":lua require(\"harpoon.ui\").nav_file(3)<CR>", opts)
-keymap("n", "<leader>l", ":lua require(\"harpoon.ui\").nav_file(4)<CR>", opts)
-
----- Telescope 
-keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts) -- find files within current working directory, respects .gitignore
-keymap("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", opts) -- find string in current working directory as you type
-keymap("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", opts) -- find string under cursor in current working directory
-keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts) -- list open buffers in current neovim instance
-keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts) -- list available help tags
-
--- Nvim-tree
-keymap("n", "<leader>ps", ":NvimTreeToggle<CR>", opts)
-
--- Insert --
+--------------------------------------- Insert mode
 ---- Exit insert mode with jj
 keymap("i", "jj", "<ESC>", opts)
 
 ---- Delete previous word with ctrl + h or ctrl + backspace
 keymap("i", "<C-H>", "<C-W>", opts)
 
--- Visual --
+---------------------------------------- Visual mode
 ---- Move selected text up and down
 keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
@@ -113,7 +90,7 @@ keymap("v", ">", ">gv", opts)
 ---- When paste over something in visual mode don't copy the deleted part
 keymap("v", "<keymap>p", "\"_dp", opts)
 
--- Visual Block
+---------------------------------------- Visual Block Mode
 ---- When paste over something in Visual block don't copy the deleted part
 keymap("x", "<leader>p", "\"_dp", opts)
 
