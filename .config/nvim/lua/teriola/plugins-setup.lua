@@ -18,6 +18,7 @@ local plugins = {
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" }, -- Better highlighting
   { "nvim-neo-tree/neo-tree.nvim", branch = "v3.x", dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim" }}, -- File explorer
   { "nvim-lualine/lualine.nvim" }, -- Status line
+  { "ThePrimeagen/harpoon", dependencies = { "nvim-lua/plenary.nvim" }}
 }
 local opts = {}
 

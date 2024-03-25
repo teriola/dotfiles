@@ -83,3 +83,16 @@ keymap("x", "J", ":move '>+0<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
+
+
+
+
+---------------------------------------------------- Plugins ----------------------------------------------------
+-- Harpoon
+keymap("n", "<leader>a", ":lua require(\"harpoon.mark\").add_file()<CR>", opts) -- Add file to harpoon
+keymap("n", "<leader>e", ":lua require(\"harpoon.ui\").toggle_quick_menu()<CR>", opts) -- Toggle file menu
+keymap("n", "<leader>h", ":lua require(\"harpoon.ui\").nav_file(1)<CR>", opts) -- Navigate to file 1
+keymap("n", "<leader>j", ":lua require(\"harpoon.ui\").nav_file(2)<CR>", opts) -- Navigate to file 2
+keymap("n", "<leader>k", ":lua require(\"harpoon.ui\").nav_file(3)<CR>", opts) -- Navigate to file 3
+keymap("n", "<leader>l", ":lua require(\"harpoon.ui\").nav_file(4)<CR>", opts) -- Navigate to file 4
