@@ -7,7 +7,8 @@ require("teriola.core.options")
 require("teriola.core.colorscheme")
 
 -- Load plugins
-require("teriola.plugins.telescope")
 require("teriola.plugins.treesitter")
+require("teriola.plugins.telescope")
 require("teriola.plugins.neotree")
 require("teriola.plugins.lualine")
+require("teriola.plugins.leap")
