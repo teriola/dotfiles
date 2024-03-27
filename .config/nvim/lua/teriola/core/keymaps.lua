@@ -102,4 +102,3 @@ keymap("n", "<leader>l", ":lua require(\"harpoon.ui\").nav_file(4)<CR>", opts) -
 keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts) -- Show hover information,
 keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts) -- Go to definition
 keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts) -- Show code actions
-

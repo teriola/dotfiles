@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 }, -- Theme
+  { "maxmx03/solarized.nvim" }, -- Theme
   { "nvim-telescope/telescope.nvim", tag = "0.1.6", dependencies = { "nvim-lua/plenary.nvim" }}, -- Quick find files/text
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" }, -- Better highlighting
   { "nvim-neo-tree/neo-tree.nvim", branch = "v3.x", dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim" }}, -- File explorer
@@ -26,6 +27,7 @@ local plugins = {
   { "williamboman/mason-lspconfig.nvim" },
   { "neovim/nvim-lspconfig" },
   { "nvim-telescope/telescope-ui-select.nvim" }, -- Display code actions in a nice window
+
 }
 local opts = {}
 
