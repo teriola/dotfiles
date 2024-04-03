@@ -22,13 +22,13 @@ local plugins = {
   { "ThePrimeagen/harpoon", dependencies = { "nvim-lua/plenary.nvim" }}, -- Navigate custom created buffers
   { "ggandor/leap.nvim" }, -- Better navigation within a file 
   { "github/copilot.vim" }, -- AI
+  { "diepm/vim-rest-console" }, -- REST client (send http requests)
+  { "christoomey/vim-tmux-navigator" }, -- Better navigation between tmux/nvim
   -- LSP
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
   { "neovim/nvim-lspconfig" },
   { "nvim-telescope/telescope-ui-select.nvim" }, -- Display code actions in a nice window
-
 }
-local opts = {}
 
 require("lazy").setup(plugins, opts)
